@@ -1,0 +1,70 @@
+Backend: MockEmbedder (sentence-transformers chưa cài; score không phản ánh ngữ nghĩa).
+
+=== Baseline (body only, no frontmatter) ===
+huit-scholarship-regulation.md
+  fixed_size: count=6 avg_length=470.7
+  by_sentences: count=5 avg_length=512.8
+  recursive: count=8 avg_length=318.0
+ou-scholarship-regulation.md
+  fixed_size: count=5 avg_length=491.4
+  by_sentences: count=5 avg_length=449.4
+  recursive: count=6 avg_length=371.8
+ueh-scholarship-hkc2025.md
+  fixed_size: count=6 avg_length=482.8
+  by_sentences: count=8 avg_length=329.1
+  recursive: count=7 avg_length=373.6
+
+Chunker: heading; loaded chunks: 49
+
+Q1: Marketing CLC TV khóa K48 của UEH cần tối thiểu bao nhiêu tín chỉ?
+Gold: Tối thiểu 13 tín chỉ.
+  1. score=0.3048 doc_id=ueh-scholarship-hkc2025 chunk=ueh-scholarship-hkc2025#2 gold_content=YES level=2
+     ## Số tín chỉ tối thiểu  | Khóa - ngành/chuyên ngành | Số tín chỉ tối thiểu | | --- | ---: | | Marketing CLC TV - K48 | 13 | | Kế toán tích hợp chứng chỉ quốc tế ICAEW CFAB plus - K48 | 13 | | Truyền thông số và Thiết kế đa phương tiện - K4...
+  2. score=0.2729 doc_id=uet-scholarship-announcement-2025-2026 chunk=uet-scholarship-announcement-2025-2026#1 gold_content=NO level=0
+     # Cấp học bổng khuyến khích học tập học kỳ I năm học 2025-2026 UET  Căn cứ Quyết định số 2339/QĐ-ĐHCN ngày 27 tháng 10 năm 2025 của Hiệu trưởng Trường Đại học Công nghệ ban hành Quy định mức học bổng khuyến khích học tập cho sinh viên đại h...
+  3. score=0.2474 doc_id=ou-scholarship-regulation chunk=ou-scholarship-regulation#3 gold_content=NO level=0
+     ## Nguyên tắc và tiêu chuẩn  Học bổng được xét theo từng học kỳ sau khi có đầy đủ điểm học phần. Quỹ học bổng tối thiểu bằng 8% tổng thu học phí trong học kỳ. Mức học bổng chương trình đại trà là tỷ lệ phần trăm trên học phí bình quân của t...
+
+Q2: Sinh viên USSH từ học kỳ II năm thứ nhất cần đáp ứng những điều kiện nào để tiếp tục nhận học bổng?
+Gold: Đã được xét học bổng Thu hút tài năng ở học kỳ I năm thứ nhất; đạt học tập và rèn luyện loại Giỏi trở lên; thuộc diện xét học bổng KKHT của ĐHQGHN; không bị kỷ luật; không có môn dưới 7,0 hoặc B; và học tối thiểu 14 tín chỉ.
+  1. score=0.2699 doc_id=uet-scholarship-announcement-2025-2026 chunk=uet-scholarship-announcement-2025-2026#1 gold_content=NO level=0
+     # Cấp học bổng khuyến khích học tập học kỳ I năm học 2025-2026 UET  Căn cứ Quyết định số 2339/QĐ-ĐHCN ngày 27 tháng 10 năm 2025 của Hiệu trưởng Trường Đại học Công nghệ ban hành Quy định mức học bổng khuyến khích học tập cho sinh viên đại h...
+  2. score=0.2150 doc_id=ueh-scholarship-hkc2025 chunk=ueh-scholarship-hkc2025#0 gold_content=NO level=0
+     # Về việc xét học bổng Khuyến khích học tập - HKC2025 UEH  Thông báo xét kết quả học tập và rèn luyện học kỳ đầu năm 2025 để cấp học bổng Khuyến khích học tập học kỳ cuối năm 2025....
+  3. score=0.2129 doc_id=usth-scholarship-regulation-2026-2027 chunk=usth-scholarship-regulation-2026-2027#2 gold_content=NO level=0
+     # Quy định học bổng cho sinh viên USTH năm học 2026-2027  - Học bổng Hạt giống tài năng (Seed of Talent Scholarship).- Học bổng Kết nối (Access Scholarship).- Học bổng Đồng hành (Support Scholarship).Chi tiết về điều kiện và giá trị học bổn...
+
+Q3: Quy trình xét học bổng KKHT HUIT gồm những bước chính nào?
+Gold: Dự trù và duyệt kinh phí; phân bổ suất; tổng kết điểm; các khoa họp xét; công khai danh sách; phòng Công tác sinh viên kiểm tra, tổng hợp; sau đó Hội đồng trình Hiệu trưởng ra quyết định và công bố danh sách.
+  1. score=0.1879 doc_id=ussh-basic-sciences-scholarship chunk=ussh-basic-sciences-scholarship#11 gold_content=NO level=0
+     ### Các bước xét chọn  1. Nhà trường thông báo tiêu chí xét học bổng dành cho 9 ngành khoa học cơ bản.2. Các Khoa thông báo tới sinh viên chậm nhất sau 5 ngày nhập học.3. Sinh viên tiếp nhận thông tin và nộp hồ sơ trực tuyến qua Trung tâm D...
+  2. score=0.1766 doc_id=ussh-basic-sciences-scholarship chunk=ussh-basic-sciences-scholarship#6 gold_content=NO level=0
+     ## Mức hỗ trợ  - Mức học bổng bằng mức học phí quy định theo từng năm học. - Hỗ trợ sinh hoạt phí 2.000.000 đồng/tháng. - Ưu tiên bố trí chỗ ở miễn phí trong ký túc xá. - Ưu tiên xét và nhận các học bổng khác có mức hỗ trợ cao hơn nếu đáp ứ...
+  3. score=0.1454 doc_id=huit-scholarship-regulation chunk=huit-scholarship-regulation#0 gold_content=NO level=0
+     # Học bổng khuyến khích học tập HUIT...
+
+Q4: USTH có những loại học bổng nào cho sinh viên, học viên và nghiên cứu sinh?
+Gold: 12 loại: Tài năng, Ươm mầm khoa học, Khuyến khích học tập, Kiến tạo, Thực tập, Xuất sắc Song bằng, Vượt khó, Tiếp nối, Tăng cường năng lực, Hạt giống tài năng, Kết nối và Đồng hành.
+  1. score=0.2556 doc_id=huit-scholarship-regulation chunk=huit-scholarship-regulation#7 gold_content=NO level=0
+     ## Quy trình xét  Phòng Công tác sinh viên dự trù và trình duyệt kinh phí; phân bổ số suất theo ngành, hệ đào tạo và khóa học; Phòng Đào tạo tổng kết điểm; các Khoa họp xét từ loại Xuất sắc trở xuống trong phạm vi quỹ; công khai danh sách d...
+  2. score=0.2351 doc_id=huit-scholarship-regulation chunk=huit-scholarship-regulation#4 gold_content=NO level=0
+     ## Mức học bổng  - Loại Khá: điểm trung bình chung học tập từ loại Khá trở lên và điểm rèn luyện từ loại Khá trở lên. - Loại Giỏi: điểm trung bình chung học tập từ loại Giỏi trở lên và điểm rèn luyện từ loại Tốt trở lên. - Loại Xuất sắc: đi...
+  3. score=0.2011 doc_id=huit-scholarship-regulation chunk=huit-scholarship-regulation#6 gold_content=NO level=0
+     ## Quỹ và thời gian xét  Quỹ học bổng do Hiệu trưởng quyết định trên cơ sở nguồn thu học phí hằng năm của hệ chính quy dài hạn. Việc xét, cấp học bổng được thực hiện vào tuần thứ 8 sau khi kết thúc học kỳ, căn cứ kết quả học tập và rèn luyệ...
+
+Q5: Học bổng loại Giỏi của OU được tính bằng bao nhiêu phần trăm học phí mỗi học kỳ?
+Gold: 70% học phí mỗi học kỳ; điều kiện là học tập loại Giỏi và rèn luyện loại Tốt hoặc Xuất sắc.
+  1. score=0.2167 doc_id=ussh-basic-sciences-scholarship chunk=ussh-basic-sciences-scholarship#6 gold_content=NO level=0
+     ## Mức hỗ trợ  - Mức học bổng bằng mức học phí quy định theo từng năm học. - Hỗ trợ sinh hoạt phí 2.000.000 đồng/tháng. - Ưu tiên bố trí chỗ ở miễn phí trong ký túc xá. - Ưu tiên xét và nhận các học bổng khác có mức hỗ trợ cao hơn nếu đáp ứ...
+  2. score=0.1649 doc_id=huit-scholarship-regulation chunk=huit-scholarship-regulation#4 gold_content=NO level=0
+     ## Mức học bổng  - Loại Khá: điểm trung bình chung học tập từ loại Khá trở lên và điểm rèn luyện từ loại Khá trở lên. - Loại Giỏi: điểm trung bình chung học tập từ loại Giỏi trở lên và điểm rèn luyện từ loại Tốt trở lên. - Loại Xuất sắc: đi...
+  3. score=0.1637 doc_id=uet-scholarship-announcement-2025-2026 chunk=uet-scholarship-announcement-2025-2026#0 gold_content=NO level=0
+     # Cấp học bổng khuyến khích học tập học kỳ I năm học 2025-2026 UET  Căn cứ Quyết định số 3568/QĐ-ĐHQGHN ngày 08 tháng 10 năm 2014 của Giám đốc Đại học Quốc gia Hà Nội ban hành Quy định về Tổ chức và Hoạt động của các đơn vị thành viên và đơ...
+
+=== Filter A/B for Q5 across baseline strategies ===
+fixed_size with_filter: ['huit-scholarship-regulation:NO', 'ou-scholarship-regulation:NO', 'huit-scholarship-regulation:NO']
+fixed_size without_filter: ['huit-scholarship-regulation:NO', 'ou-scholarship-regulation:NO', 'huit-scholarship-regulation:NO']
+by_sentences with_filter: ['huit-scholarship-regulation:NO', 'ueh-scholarship-hkc2025:NO', 'uet-scholarship-announcement-2025-2026:NO']
+by_sentences without_filter: ['huit-scholarship-regulation:NO', 'ueh-scholarship-hkc2025:NO', 'uet-scholarship-announcement-2025-2026:NO']
+recursive with_filter: ['ou-scholarship-regulation:NO', 'ou-scholarship-regulation:NO', 'ou-scholarship-regulation:NO']
+recursive without_filter: ['ou-scholarship-regulation:NO', 'ou-scholarship-regulation:NO', 'ou-scholarship-regulation:NO']
