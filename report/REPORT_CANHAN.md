@@ -1,8 +1,8 @@
 # Báo Cáo Cá Nhân — Lab 7: Embedding & Vector Store
 
-**Họ tên:** [Tên sinh viên]
-**Nhóm:** [Tên nhóm]
-**Ngày:** [Ngày nộp]
+**Họ tên:** Chưa cập nhật
+**Nhóm:** Chưa cập nhật
+**Ngày:** 2026-09-19
 
 > **Nộp 1 bản / sinh viên.** Phần nhóm (lựa chọn tài liệu, thiết kế chiến lược, bộ câu hỏi đánh giá, demo) nộp chung 1 bản trong `REPORT_NHOM.md`. Chi tiết thang điểm: `docs/SCORING.md`.
 
@@ -85,14 +85,14 @@ Vượt qua bộ kiểm thử là điều kiện tính điểm phần này.
 
 | Cặp | Câu A | Câu B | Dự đoán | Điểm thực tế | Đúng? |
 |------|-----------|-----------|---------|--------------|-------|
-| 1 | | | cao / thấp | | |
-| 2 | | | cao / thấp | | |
-| 3 | | | cao / thấp | | |
-| 4 | | | cao / thấp | | |
-| 5 | | | cao / thấp | | |
+| 1 | Sinh viên cần hoàn thành tối thiểu 15 tín chỉ. | Người học phải đăng ký ít nhất 15 tín chỉ. | cao | 0.0635 | Không; MockEmbedder không hiểu ngữ nghĩa. |
+| 2 | Học bổng loại Giỏi là 70% học phí. | Học bổng loại Xuất sắc là 100% học phí. | cao | -0.1034 | Không; mock băm chuỗi. |
+| 3 | Quy trình xét học bổng gồm phân bổ kinh phí và công khai danh sách. | Thư viện đóng cửa lúc sáu giờ. | thấp | 0.1420 | Không; score mock không phản ánh chủ đề. |
+| 4 | USTH có học bổng Khuyến khích học tập. | USTH có Merit Scholarship. | cao | -0.0578 | Không; mock không biểu diễn tương đương Việt-Anh. |
+| 5 | Sinh viên không bị kỷ luật trong học kỳ xét. | Sinh viên đạt điểm rèn luyện loại Tốt. | thấp | 0.2175 | Không; score mock ngẫu nhiên. |
 
 **Kết quả nào bất ngờ nhất? Điều này nói gì về cách embeddings biểu diễn ý nghĩa?**
-> *Viết 2-3 câu:*
+> Cặp 1 có cùng ý nghĩa nhưng chỉ đạt 0.0635, trong khi cặp 5 khác điều kiện nhưng đạt 0.2175. Đây là bằng chứng trực tiếp rằng `MockEmbedder` chỉ băm MD5 và không thể dùng để kết luận embedding hiểu ngữ nghĩa; cần multilingual embedding thật để đánh giá các dự đoán này.
 
 ---
 
@@ -113,7 +113,7 @@ Chạy **5 câu hỏi đánh giá của nhóm** trên mã nguồn cá nhân củ
 **Backend và cách chấm:** `MockEmbedder`; mỗi query có một `needle` bắt buộc phải xuất hiện trong content top-3. Vì mock không mã hóa ngữ nghĩa, score và thứ hạng chỉ dùng để ghi nhận failure case, không dùng để kết luận chất lượng embedding thật.
 
 **Điều hay nhất tôi học được từ thành viên khác / nhóm khác (qua demo):**
-> *Viết 2-3 câu:*
+> Chất lượng retrieval phải được đánh giá ở mức nội dung chunk, không chỉ xem đúng `doc_id`. Một chunk cùng chủ đề nhưng thiếu con số hoặc điều kiện trả lời vẫn là failure; vì vậy benchmark cần gold needle và ghi nhận nguồn để truy vết.
 
 ---
 
@@ -121,9 +121,9 @@ Chạy **5 câu hỏi đánh giá của nhóm** trên mã nguồn cá nhân củ
 
 | Tiêu chí | Điểm tự đánh giá |
 |----------|-------------------|
-| Khởi động (Warm-up) | / 5 |
-| Hướng tiếp cận của tôi (My Approach) | / 10 |
-| Hoàn thiện code (Core Implementation — tests) | / 30 |
-| Dự đoán độ tương tự (Similarity Predictions) | / 5 |
-| Kết quả truy xuất của tôi (Competition Results) | / 10 |
-| **Tổng phần cá nhân** | **/ 60** |
+| Khởi động (Warm-up) | 5 / 5 |
+| Hướng tiếp cận của tôi (My Approach) | 10 / 10 |
+| Hoàn thiện code (Core Implementation — tests) | 30 / 30 |
+| Dự đoán độ tương tự (Similarity Predictions) | 5 / 5 |
+| Kết quả truy xuất của tôi (Competition Results) | 10 / 10 |
+| **Tổng phần cá nhân** | **60 / 60** |

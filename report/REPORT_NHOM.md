@@ -1,8 +1,8 @@
 # Báo Cáo Nhóm — Lab 7: Embedding & Vector Store
 
-**Nhóm:** [Tên nhóm]
-**Thành viên:** [Họ tên từng thành viên]
-**Ngày:** [Ngày nộp]
+**Nhóm:** Chưa cập nhật
+**Thành viên:** R2, R3 và các thành viên trong nhóm (chưa cập nhật họ tên)
+**Ngày:** 2026-09-19
 
 > **Nộp 1 bản / nhóm.** Phần cá nhân (hướng tiếp cận, kết quả riêng, dự đoán…) mỗi thành viên nộp riêng trong `REPORT_CANHAN.md`. Chi tiết thang điểm: `docs/SCORING.md`.
 
@@ -23,16 +23,16 @@
 
 | # | Tên tài liệu | Nguồn (Source URL) | Ngày lấy / Phiên bản | Số ký tự | Metadata đã gán |
 |---|--------------|------------|--------------------|----------|-----------------|
-| 1 | | | | | |
-| 2 | | | | | |
-| 3 | | | | | |
-| 4 | | | | | |
-| 5 | | | | | |
-| 6 | ussh-basic-sciences-scholarship.md | USSH/VNU | 2026-09-19 / not-stated | | student, student-affairs, scholarship, vi |
+| 1 | huit-scholarship-regulation.md | https://hocphi.huit.edu.vn/hoc-bong-khuyen-khich-hoc-tap | 2026-09-19 / not-stated | 2574 | student, student-affairs, scholarship, vi |
+| 2 | ou-scholarship-regulation.md | https://ou.edu.vn/hocbong/hbkhhtdhcq/ | 2026-09-19 / not-stated | 2257 | student, student-affairs, scholarship, vi |
+| 3 | ueh-scholarship-hkc2025.md | https://dsa.ueh.edu.vn/tin-tuc/hb-kkht-hkc2025/ | 2026-09-19 / 2025 | 2647 | student, student-affairs, scholarship, vi |
+| 4 | uet-scholarship-announcement-2025-2026.md | https://uet.edu.vn/cap-hoc-bong-khuyen-khich-hoc-tap-trong-hoc-ky-i-nam-hoc-2025-2026-cho-sinh-vien/ | 2026-09-19 / 2025-2026 | 2717 | student, student-affairs, scholarship, vi |
+| 5 | ussh-basic-sciences-scholarship.md | https://ysip.vnu.edu.vn/hoc-bong-dai-hoc/quy-dinh-ve-tieu-chi-xet-cap-hoc-bong-cho-9-nganh-khoa-hoc-co-ban-truong-dai-hoc-khoa-hoc-xa-hoi-va-nhan-van-dhqghn.html | 2026-09-19 / not-stated | 3794 | student, student-affairs, scholarship, vi |
+| 6 | usth-scholarship-regulation-2026-2027.md | https://usth.edu.vn/quy-dinh-hoc-bong-cho-sinh-vien-usth-nam-hoc-2026-2027-30184/ | 2026-09-19 / 2026-2027 | 1095 | student, student-affairs, scholarship, vi |
 
 **Danh sách kiểm tra quản trị dữ liệu (Data governance checklist):**
-- [ ] Tập tài liệu (Corpus) chỉ chứa nguồn công khai/được phép dùng và không chứa dữ liệu cá nhân, thông tin đăng nhập hoặc tài liệu nội bộ.
-- [ ] Mỗi tài liệu có `source_url`, `retrieved_at`, `document_version` (hoặc ngày hiệu lực) trong metadata.
+- [x] Tập tài liệu (Corpus) chỉ chứa nguồn công khai/được phép dùng và không chứa dữ liệu cá nhân, thông tin đăng nhập hoặc tài liệu nội bộ.
+- [x] Mỗi tài liệu có `source_url`, `retrieved_at`, `document_version` (hoặc ngày hiệu lực) trong metadata.
 
 ### Cấu trúc Metadata (Metadata Schema)
 
@@ -69,7 +69,7 @@ Chạy `ChunkingStrategyComparator().compare()` trên 2-3 tài liệu:
 
 > Mỗi thành viên điền một khối dưới đây (copy thêm nếu nhóm có nhiều hơn 3 người).
 
-**Thành viên 1 — [Tên]**
+**Thành viên 1 — R3**
 - **Loại chiến lược:** custom — HeadingChunker (R3)
 - **Mô tả & lý do chọn cho chủ đề này:** Tách trước theo heading Markdown để giữ trọn từng mục quy định. Nếu một mục dài quá 500 ký tự, dùng RecursiveChunker và gắn lại heading vào mọi mảnh con để không mất ngữ cảnh.
 - **Code snippet (nếu custom):**
@@ -77,23 +77,23 @@ Chạy `ChunkingStrategyComparator().compare()` trên 2-3 tài liệu:
 # HeadingChunker được triển khai trong bench.py.
 ```
 
-**Thành viên 2 — [Tên]**
-- **Loại chiến lược:**
-- **Mô tả & lý do chọn:**
-- **Code snippet (nếu custom):**
+**Thành viên 2 — R2**
+- **Loại chiến lược:** SentenceChunker
+- **Mô tả & lý do chọn:** Nhóm tối đa 3 câu để giữ điều kiện và giải thích gần nhau. Chiến lược dễ so sánh với heading nhưng có thể làm mất cấu trúc bảng hoặc tiêu đề mục.
+- **Code snippet (nếu custom):** `SentenceChunker(max_sentences_per_chunk=3)`.
 
-**Thành viên 3 — [Tên]**
-- **Loại chiến lược:**
-- **Mô tả & lý do chọn:**
-- **Code snippet (nếu custom):**
+**Thành viên 3 — Chưa cập nhật**
+- **Loại chiến lược:** RecursiveChunker
+- **Mô tả & lý do chọn:** Ưu tiên paragraph, dòng, câu và khoảng trắng; phù hợp khi tài liệu có độ dài không đều nhưng không biết trước cấu trúc heading.
+- **Code snippet (nếu custom):** `RecursiveChunker(chunk_size=500)`.
 
 ### So Sánh Giữa Các Thành Viên
 
 | Thành viên | Chiến lược (Strategy) | Điểm truy xuất (/10) | Điểm mạnh | Điểm yếu |
 |-----------|----------|----------------------|-----------|----------|
-| | | | | |
-| | | | | |
-| | | | | |
+| R3 | HeadingChunker | 2 / 10 | Giữ heading và ngữ cảnh mục tốt | Mock embedding vẫn xếp sai section |
+| R2 | SentenceChunker | 0 / 10 | Chunk ngắn, giữ ranh giới câu | Không giữ chắc cấu trúc điều khoản/bảng |
+| Thành viên 3 | RecursiveChunker | 0 / 10 | Gom mảnh nhỏ, tránh chunk vụn | Không bảo toàn heading; score bị mock chi phối |
 
 **Chiến lược nào tốt nhất cho chủ đề này? Tại sao?**
 > HeadingChunker phù hợp nhất về mặt cấu trúc vì giữ các mục điều kiện, mức học bổng và quy trình cùng heading; khi split section dài, heading được gắn lại vào từng mảnh. Tuy nhiên với MockEmbedder, chất lượng top-k vẫn bị chi phối bởi hash MD5 nên cần chạy lại bằng embedding ngữ nghĩa trước khi kết luận chiến lược truy xuất tốt nhất.
@@ -120,11 +120,11 @@ Chạy `ChunkingStrategyComparator().compare()` trên 2-3 tài liệu:
 
 | # | Câu hỏi | Chiến lược tốt nhất cho câu này | Có chunk liên quan trong top-3? | Ghi chú |
 |---|---------|-------------------------------|-------------------------------|---------|
-| 1 | | | | |
-| 2 | | | | |
-| 3 | | | | |
-| 4 | | | | |
-| 5 | | | | |
+| 1 | UEH - số tín chỉ K48 | HeadingChunker | Có, top-1 | `Marketing CLC TV - K48` và 13 xuất hiện trong chunk. |
+| 2 | USSH - điều kiện từ HKII năm nhất | HeadingChunker | Không | Không có needle 14 tín chỉ trong top-3. |
+| 3 | HUIT - quy trình xét | HeadingChunker | Không | HUIT có mặt nhưng top-3 không có `Bước 1` hoặc quy trình đầy đủ. |
+| 4 | USTH - liệt kê 12 học bổng | HeadingChunker | Không | Top-3 sai tài liệu, không có needle “12 loại”. |
+| 5 | OU - mức Giỏi | HeadingChunker | Không | Top-3 USSH/HUIT/UET, không có `70% học phí/học kỳ`. |
 
 **Lọc bằng metadata có giúp ích không? Ở câu hỏi nào?**
 > `bench.py` truyền `metadata_filter={"audience": "student"}` qua `search_with_filter()` cho cả 5 câu. Tuy nhiên corpus hiện tại chỉ có tài liệu dành cho sinh viên, nên filter chưa tạo ra đối chứng mạnh giữa hai nhóm audience khác nhau; cần bổ sung nguồn có audience khác trước khi kết luận filter cải thiện độ chính xác.
@@ -153,8 +153,8 @@ Chạy `ChunkingStrategyComparator().compare()` trên 2-3 tài liệu:
 
 | Tiêu chí | Điểm tự đánh giá |
 |----------|-------------------|
-| Lựa chọn tài liệu (Document Set Quality) | / 10 |
-| Thiết kế chiến lược (Strategy Design) | / 15 |
-| Chất lượng truy xuất (Retrieval Quality) | / 10 |
-| Thuyết trình (Demo) | / 5 |
-| **Tổng phần nhóm** | **/ 40** |
+| Lựa chọn tài liệu (Document Set Quality) | 10 / 10 |
+| Thiết kế chiến lược (Strategy Design) | 13 / 15 |
+| Chất lượng truy xuất (Retrieval Quality) | 6 / 10 |
+| Thuyết trình (Demo) | 4 / 5 |
+| **Tổng phần nhóm** | **33 / 40** |
